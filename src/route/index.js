@@ -29,13 +29,10 @@ const router = new VueRouter({
       name: 'Index',
       path: '/index',
       component: Index,
+      // 已经入后台就需要显示欢迎页面
+      redirect: { name: 'Wel' },
       children: [
         // 嵌套路由：文章发布与文章列表
-        {
-          name: 'default',
-          path: '',
-          redirect: { name: 'Wel' }
-        },
         {
           name: 'Wel',
           path: 'wel',

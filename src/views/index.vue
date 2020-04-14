@@ -90,7 +90,7 @@ export default {
   async created () {
     // 进入页面根据ID来获取用户的数据来渲染页面
     const res = await userInfo(localStorage.getItem('toutiao_back_id'))
-    console.log(res)
+    // console.log(res)
     this.userInfo = res.data.data
   }
 }
