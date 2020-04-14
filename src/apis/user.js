@@ -9,3 +9,11 @@ export const login = (data) => {
     data
   })
 }
+
+// 根据ID来获取用户数据
+export const userInfo = (id) => {
+  return axios({
+    method: 'get',
+    url: `/user/${id}`
+  })
+}

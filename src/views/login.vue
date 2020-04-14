@@ -46,7 +46,7 @@ export default {
         if (valid) {
           // 通过表单验证之后，发起请求
           const res = await login(this.userInfo)
-          // console.log(res)
+          console.log(res.data.data.user.id)
           if (res.data.message === '登录成功') {
             // 提示
             this.$message({
@@ -55,6 +55,8 @@ export default {
             })
             // 将用户的token存起来
             localStorage.setItem('toutaio_back_token', res.data.data.token)
+            // 将用户ID存起来
+            localStorage.setItem('toutiao_back_id', res.data.data.user.id)
             // 跳转到首页
             this.$router.push({ name: 'Index' })
           }

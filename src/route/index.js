@@ -5,6 +5,10 @@ import VueRouter from 'vue-router'
 
 // 引入组件
 import Login from '@/views/login.vue'
+import Index from '@/views/index.vue'
+import Wel from '@/views/wel.vue'
+import AddPost from '@/views/addPost.vue'
+import PostList from '@/views/postList.vue'
 // use
 Vue.use(VueRouter)
 // 创建路由实例
@@ -20,6 +24,34 @@ const router = new VueRouter({
       name: 'Login',
       path: '/login',
       component: Login
+    },
+    {
+      name: 'Index',
+      path: '/index',
+      component: Index,
+      children: [
+        // 嵌套路由：文章发布与文章列表
+        {
+          name: 'default',
+          path: '',
+          redirect: { name: 'Wel' }
+        },
+        {
+          name: 'Wel',
+          path: 'wel',
+          component: Wel
+        },
+        {
+          name: 'AddPost',
+          path: 'addPost',
+          component: AddPost
+        },
+        {
+          name: 'PostList',
+          path: 'postList',
+          component: PostList
+        }
+      ]
     }
   ]
 })
